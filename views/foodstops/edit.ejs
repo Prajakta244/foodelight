@@ -1,0 +1,39 @@
+<% include ../partials/details %>
+<div class = "container">
+	<div class = "row cmt">
+	<div class = "col-md-8" style = "width : 30% ; margin: 25px auto">
+		<h1 class = "text-center">Edit <%= foodstop.name %></h1>
+		<form action = "/foodstops/<%= foodstop._id %>/?_method=PUT" method="POST">
+		<div class = "form-group">
+			<input class = "form-control" type = "text" name = "foodstop[name]" placeholder = "Enter name of new foodstop" value = "<%= foodstop.name %>">		
+		</div>
+		
+		<div class = "form-group">
+			<input class = "form-control" type = "text" name = "foodstop[image]" placeholder = "Enter URL for the image" value = "<%= foodstop.image %>">
+		</div>
+			<div class = "form-group">
+			<input class = "form-control" type = "text" name = "foodstop[secondimage]" placeholder = "Enter URL for the image" value = "<%= foodstop.secondimage %>">
+		</div>
+			<div class = "form-group">
+			<input class = "form-control" type = "text" name = "foodstop[thirdimage]" placeholder = "Enter URL for the image" value = "<%= foodstop.thirdimage %>">
+		</div>
+		<div class = "form-group">
+			<label for="Description">Description</label>
+			<textarea class="form-control" id="Description" rows="3" name = "foodstop[description]">"<%= foodstop.description %>"</textarea>
+		</div>
+			<div class = "form-group">
+			<input class = "form-control" type = "text" name = "foodstop[price]" placeholder = "Enter price" value = "<%= foodstop.price %>">
+		</div>
+			<div class="form-group">
+    <label for="location">Location</label>
+    <input class="form-control" type="text" name="location" id="location" value="<%= foodstop.location %>">
+</div>
+		<div class = "form-group">
+			<button class = "btn btn-lg btn-primary btn-block">Create</button>		
+		</div>
+	</form>
+	<a href = "/foodstops">Go Back</a>
+	</div>
+		</div>
+</div>
+	<% include ../partials/footer %>

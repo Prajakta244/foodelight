@@ -1,0 +1,39 @@
+<% include ../partials/details %>
+<div class = "container">
+	<div class = "row cmt">
+	<div class = "col-md-8" style = "width : 30% ; margin: 25px auto">
+		<h1 class = "text-center">Create a New FoodStop!!</h1>
+		<form action = "/foodstops" method="POST">
+		<div class = "form-group">
+			<input class = "form-control" type = "text" name = "name" placeholder = "Enter name of new foodstop">		
+		</div>
+		
+		<div class = "form-group">
+			<input class = "form-control" type = "text" name = "image" placeholder = "Enter URL for the image">
+		</div>
+			<div class = "form-group">
+			<input class = "form-control" type = "text" name = "secondimage" placeholder = "Enter URL for the image">
+		</div>
+			<div class = "form-group">
+			<input class = "form-control" type = "text" name = "thirdimage" placeholder = "Enter URL for the image">
+		</div>
+		<div class = "form-group">
+			<label for="Description">Description</label>
+			<textarea class="form-control" id="Description" rows="3" name = "description" ></textarea>
+		</div>
+			<div class = "form-group">
+			<input class = "form-control" type = "text" name = "price" placeholder = "Enter price">
+		</div>
+		<div class="form-group">
+    <label for="location">Location</label>
+    <input class="form-control" type="text" name="location" id="location" placeholder="Yosemite National Park, CA">
+</div>
+		<div class = "form-group">
+			<button class = "btn btn-lg btn-primary btn-block">Create</button>		
+		</div>
+	</form>
+	<a href = "/foodstops">Go Back</a>
+	</div>
+		</div>
+</div>
+	<% include ../partials/footer %>

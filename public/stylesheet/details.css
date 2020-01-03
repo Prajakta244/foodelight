@@ -1,0 +1,54 @@
+.jumbotron{
+	margin-top:2%;		
+}
+.cimage{
+	width:100%;
+	height:490px
+		
+}
+.bg-dark {
+    background-color: transparent !important;
+}
+.bg_image{
+	background-attachment:fixed;	
+}
+.caption-full{
+	padding:12px;
+}
+#deleteform{
+	display:inline
+}
+.carousel-inner > .item {
+    position: relative;
+    display: none;
+    transition: 0.8s ease-in-out right;
+}
+
+.danger {
+	color: red;
+}
+.danger:hover {
+  color: red;
+}
+.deleteform{
+	display:inline;
+}
+body { padding-top: 40px; }
+@media screen and (max-width: 768px) {
+    body { padding-top: 0px; }
+}
+.alert-danger{
+	margin-top:15px;
+}
+#map{
+	height:400px;
+	width:100%;
+}
+.profile{
+	width:30%;
+	height:280px;
+}
+
+
+
+

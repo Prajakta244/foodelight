@@ -1,0 +1,23 @@
+<% include ../partials/details %>
+<div class = "container">
+	<h1 class = "text-center">
+		<%= user.username %>'s Foodstops
+	</h1>
+	<img class = "rounded-circle profile mx-auto d-block" src = "<%= user.profile %>" >
+	<h3 class = "text-center">
+		<%= user.firstname +" "+ user.lastname %>
+	</h3>
+	<div class = "row" style = "margin-top : 50px">
+		<% foodstop.forEach(function(foodstop){ %>
+			<div class = "col-md-10 col-lg-8 mx-auto">
+				<strong style = "font-size : 21px">
+					<a href = "/foodstops/<%= foodstop.id %>"><%= foodstop.name %></a>
+				</strong>
+				<span class = "float-right">
+			Created At - <%= moment(foodstop.createdAt).format('LLLL') %>
+		</span>
+		</div><br><br>
+		<% }) %>
+	</div>
+	<a href = "/foodstops">Go Back</a>
+</div>
