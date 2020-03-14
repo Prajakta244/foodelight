@@ -1,9 +1,9 @@
-<% include ./partials/details %> 
+<% include ./partials/details %>
 <div class = "container">
 	<div class = "row cmt">
 	<div class = "col-md-8" style = "width : 30% ; margin: 25px auto">
 		<h1 class = "text-center">Sign Up Here!!!</h1>
-		<form action = "/register" method="POST">
+		<form action = "/register" method="POST" enctype="multipart/form-data">
 		<div class = "form-group">
 			<input class = "form-control" type = "text" name = "username" placeholder = "Enter Your Name">		
 		</div>
@@ -20,7 +20,7 @@
 			<input class = "form-control" type = "email" name = "email" placeholder = "Enter Your Email">
 		</div>
 			<div class = "form-group">
-			<input class = "form-control" type = "text" name = "profile" placeholder = "Enter Profile URL">
+			<input class = "form-control" type = "file" name = "profile" placeholder = "Enter Profile URL">
 		</div>
 		<div class="form-group">
     <input class="form-control" type="password" name = "secretKey" placeholder = "Enter Your Secret Key">

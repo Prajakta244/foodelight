@@ -7,6 +7,8 @@ var foodstopSchema = new mongoose.Schema({
 	description : String,
 	location: String,
 	price : String,
+	category:String,
+	address:String,
 	createdAt : {
 		type :Date,
 		default : Date.now
@@ -23,7 +25,13 @@ var foodstopSchema = new mongoose.Schema({
 			type : mongoose.Schema.Types.ObjectId,
 			ref : "Comment"
 		}
-	]
+	],
+	likes: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ]
 	
 })
 

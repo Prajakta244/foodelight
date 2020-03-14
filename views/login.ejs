@@ -1,10 +1,22 @@
-<% include ./partials/details %> 
-<h1>
-	Please Login here..
-</h1>
-<form action = "/login" method = "POST">
-	<input type = "text" name = "username" placeholder = "username">
-	<input type = "password" name = "password" placeholder = "password">
-	<input type = "submit" value = "LogIn">
- </form>
+<% include ./partials/details %>
+<div class = "container">
+	<div class = "row cmt">
+	<div class = "col-md-8" style = "width : 30% ; margin: 25px auto">
+		<h1 class = "text-center">Login Here!!!</h1>
+		<form action = "auth/login" method="POST">
+		<div class = "form-group">
+			<input class = "form-control" type = "text" name = "username" placeholder = "Enter Your Name">		
+		</div>
+			<div class = "form-group">
+			<input class = "form-control" type = "password" name = "password" placeholder = "Enter Your Password">
+		</div>
+		<div class = "form-group">
+			<button class = "btn btn-lg btn-primary btn-block">Login</button>		
+		</div>
+	</form>
+	<a href = "/foodstops">Go Back</a>
+		<a href = "/auth/google">Google</a>
+	</div>
+		</div>
+</div>
 <% include ./partials/footer %>

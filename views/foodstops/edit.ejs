@@ -22,7 +22,23 @@
 			<textarea class="form-control" id="Description" rows="3" name = "foodstop[description]">"<%= foodstop.description %>"</textarea>
 		</div>
 			<div class = "form-group">
+			<input class = "form-control" type = "text" name = "address" placeholder = "Enter Address" value = "<%= foodstop.address %>">
+		</div>
+			<div class = "form-group">
 			<input class = "form-control" type = "text" name = "foodstop[price]" placeholder = "Enter price" value = "<%= foodstop.price %>">
+		</div>
+			<div class = "form-group">
+			<div class="form-group">
+				<label for="category">Select category</label>
+				<select class="form-control" id="category" name="category" value = "<%= foodstop.category %>">
+				  <option>Veg</option>
+				  <option>Non-veg</option>
+				  <option>Beverages</option>
+				  <option>Sweets</option>
+				  <option>Drinks</option>
+				  <option>Chaat</option>
+				</select>
+			</div>	
 		</div>
 			<div class="form-group">
     <label for="location">Location</label>

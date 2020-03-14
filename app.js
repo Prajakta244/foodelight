@@ -3,6 +3,7 @@ var app           = express()
 var bodyparser    = require("body-parser")
 var mongoose      = require("mongoose")
 var flash         = require("connect-flash")
+var cookie        = require("cookie-session")
 var passport      = require("passport")
 var moment        = require("moment-timezone")
 var LocalStrategy = require("passport-local")
@@ -11,23 +12,30 @@ var Foodstop      = require("./models/foodstop")
 var Comment       = require("./models/comment")
 var User          = require("./models/user") 
 var seedDb        = require("./seed")
-
+var authRoute     = require("./routes/auth")
+var passportSetup = require("./config/passport_auth")
 var commentsRoute = require("./routes/comments")
 var foodstopsRoute = require("./routes/foodstops")
 var indexRoute = require("./routes/index")
 
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useCreateIndex', true)
-mongoose.connect("mongodb://127.0.0.1:27017/food_stop",{ useNewUrlParser: true })
+// mongoose.connect("mongodb://127.0.0.1:27017/food_stop",{ useNewUrlParser: true })ss
+mongoose.connect("mongodb+srv://prajakta:prajakta@foodstopcluster-79lyt.mongodb.net/test?retryWrites=true&w=majority",{ useNewUrlParser: true })
 
 
 app.use(express.static("public"))
+// app.use(express.static("public"))
 app.use(bodyparser.urlencoded({extended:true}))
 app.use(methodoverride("_method"))
 app.use(flash())
 app.set("view engine","ejs")
 
-//seedDb()
+app.use(cookie({
+	maxAge:24*60*60*1000,
+	keys:["mischief managed"]
+}))
+
 
 //Passport Configuration
 
@@ -53,8 +61,9 @@ app.use(function(req, res, next){
 	next();
 })
 
-app.use(foodstopsRoute)
-app.use(commentsRoute)
+app.use("/foodstops",foodstopsRoute)
+app.use("/foodstops/:id/comments",commentsRoute)
+app.use("/auth",authRoute)
 app.use(indexRoute)
 
 
