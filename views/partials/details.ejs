@@ -5,16 +5,17 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 		<link rel = "stylesheet" type : "text/css" href ="/stylesheet/details.css">
+		<link href="https://fonts.googleapis.com/css?family=El+Messiri|Montserrat+Subrayada&display=swap" rel="stylesheet">
 	</head>
 	<body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  		<a class="navbar-brand" href="#">FooDelight</a>
+  		<a class="navbar-brand f_detail" href="#">FooDelight</a>
   			<button class="navbar-toggler" type="button" data-toggle="collapse" data-							target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-					expanded="false" aria-label="Toggle navigation">
     				<span class="navbar-toggler-icon"></span>
 	  		</button>
 
   		<div class="collapse navbar-collapse " id="navbarSupportedContent">
-    		<ul class="nav navbar-nav  ml-auto float-right" >
+    		<ul class="nav navbar-nav  ml-auto float-right f_detail">
 				<li class="nav-item active">
         			<a class="nav-link" href="/foodstops/new">New foodstop</a>
       			</li>
@@ -23,14 +24,14 @@
 				</li>
 				<% if(!currentUser){ %>
 					<li class="nav-item active">
-					 <a class="nav-link" href="/auth/login">Log In <span class="sr-only">(current)</span></a>
+					 <a class="nav-link" href="/login">Log In <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="/register">Sign Up</a>
 					</li>
 				<% } else { %>	
 					<li class="nav-item">
-						<a class="nav-link" href = "#">Signed In AS <%= currentUser.username %></a>
+						<a class="nav-link" href = "#">Signed In AS <%= currentUser.username || currentUser.google.username %></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="/auth/logout">Log Out</a>

@@ -5,6 +5,7 @@ var Comment = require("../models/comment")
 var middleware = require("../middleware")
 
 router.get("/new", middleware.isLoggedIn,function(req,res){
+	
 	Foodstop.findById(req.params.id, function(err, foodstop){
 		if(err){
 			console.log(err)
@@ -23,8 +24,9 @@ router.post("/",middleware.isLoggedIn, function(req,res){
 	}
 	else{
 		Comment.create(req.body.comment, function(err, comment){
+			
 			comment.author.id = req.user._id
-			comment.author.username = req.user.username
+			comment.author.username = req.user.username ||req.user.google.username
 			comment.save()
 			foodstop.comments.push(comment)
 			foodstop.save()

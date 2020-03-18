@@ -5,6 +5,8 @@ var middleware = require("../middleware")
 
 //SHOW all foodstops
 router.get("/", function(req,res){
+	console.log(req.user)
+	console.log(res.locals.currentUser)
 	Foodstop.find({},function(err,allFoodstops){
 		if(err){
 			console.log(err)
@@ -71,11 +73,11 @@ router.post("/:id/like", middleware.isLoggedIn,function(req,res){
 			console.log(err)
 			return res.redirect("/foodstops")
 		}
-		var userLike = likedfoodstop.likes.some(function(like) {
+		var userLike = likedfoodstop.likes.some(function (like) {
             return like.equals(req.user._id);
         });
 		if (userLike) {
-			console.log(likedfoodstop.likes.length)
+			
             // user already liked, removing like
             likedfoodstop.likes.pull(req.user._id);
         } else {

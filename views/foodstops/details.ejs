@@ -19,7 +19,7 @@
 				<h4 class = "float-right">
 					&#2352 <%= foodstop.price %>.00
 				</h4>
-				<h3 class = "text-left caption-full"><%= foodstop.name %></h3>
+				<h3 class = "text-left caption-full f_detail"><%= foodstop.name %></h3>
 				<div class = "float-right">
 					<button type="button" class="btn btn-link" data-toggle="modal" data-target="#like"><span>Likes: <i class="fa fa-heart" aria-hidden="true"></i> <%= foodstop.likes.length %></span></button>					
 				</div>
@@ -31,16 +31,16 @@
                                     return like.equals(currentUser._id)
             		 })) { %>
                      <button class="btn btn-sm btn-outline-danger">
-				     <i class="fas fa-heart"></i> Liked (<%= foodstop.likes.length+1 %>)
+				     <i class="fas fa-heart"></i> Liked (<%= foodstop.likes.length %>)
                      </button>
                      <% } else { %>
                      <button class="btn btn-sm btn-outline-secondary">
-                     <i class="fas fa-heart"></i> Like (<%= foodstop.likes.length+1 %>)
+                     <i class="fas fa-heart"></i> Like (<%= foodstop.likes.length %>)
                      </button>
                      <% } %>
                      </div>
             </form>
-				<h6><%= foodstop.description %></h6>
+				<h6 style="font-family:Cinzel;font-size:18px"><%= foodstop.description %></h6>
 				<p>
 						<em>Submitted By <a href = "/users/<%= foodstop.author.id %>"><%= foodstop.author.username %></a>, <%= moment(foodstop.createdAt).fromNow() %> </em>
 					</p>
@@ -63,7 +63,7 @@
 				
 					<strong><%= comment.author.username %></strong>
 					<span class = "float-right"><%= moment(comment.createdAt).fromNow() %></span> 
-					<p><%= comment.name %></p>
+					<p>"<%= comment.name %>"</p>
 					<% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
 					<a class = "btn btn-link" href = "/foodstops/<%= foodstop._id %>/comments/<%= comment._id%>/edit">Edit</a>
 					<form class = "deleteform" action = "/foodstops/<%= foodstop._id %>/comments/<%= comment._id%>?_method=DELETE" method = "POST">
@@ -104,7 +104,7 @@
                     <tbody>
                     <% foodstop.likes.forEach(function(like) { %>
                         <tr>
-                            <td><span class="badge"><i class="fas fa-user"></i></span> <%= like.username %></td>
+                            <td><span class="badge"><i class="fas fa-user"></i></span> <%= like.username || like.google.user%></td>
                         </tr>
                     <% }); %>
                     <% if (foodstop.likes.length === 0) { %>

@@ -1,7 +1,19 @@
 const passport = require("passport")
+var app = express()
 const GoogleStrategy = require("passport-google-oauth20")
 var keys = require("./keys")
 const User = require("../models/auth_model")
+app.use(require("express-session")({
+	secret:"mischief managed",
+	resave:false,
+	saveUninitialized:false
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
+// passport.use(new LocalStrategy(User.authenticate()))
+// passport.serializeUser(User.serializeUser())
+// passport.deserializeUser(User.deserializeUser())
 
 passport.serializeUser((user,done)=>{
 	done(null,user.id)

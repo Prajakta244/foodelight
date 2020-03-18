@@ -6,25 +6,55 @@
     <a class= "btn btn-primary" href ="/foodstops/new">Add new FoodStop</a>
   </div>
 </div> -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+<div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message to undefined</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="modal-body">
+        <form method="post" action="/login">
+            <div class = "form-group">
+			<input class = "form-control" type = "text" name = "username" placeholder = "Enter Your Name">		
+		</div>
+			<div class = "form-group">
+			<input class = "form-control" type = "password" name = "password" placeholder = "Enter Your Password">
+		</div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+	     </div>
+</div>
 
 <div class="container">
-  <div class="row">
+  <div class="row my-flex-card">
     <% foodstops.forEach(function(foodstop){ %>
     <div class="col-sm-6">
       
         <div class="card mb-3" style="max-width: 100%;">
 			<div class="row col-md-12">
-          <div class="col-md-4">
+          <div class="col-md-4 col-xs-12">
             <img src="<%= foodstop.image%>" class="card-img text-center" alt="..." />
           </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title text-center"><%= foodstop.name %></h5>
+          <div class="col-md-8 d-flex">
+            <div class="card-body flex-fill">
+              <h5 class="card-title text-center f_detail" style="font-weight:bold;" ><%= foodstop.name %></h5>
               <p class="card-text">
-                <h6 class ="text-center">
+                <h6 class ="text-center" style="font-family:Cinzel;font-size:18px">
 					<b>Where :</b>  <%= foodstop.address %>
 				</h6>
-				<h5 class = "text-center">
+				<h5 class = "text-center f_detail">
 					<b>Price :</b> &#2352 <%= foodstop.price %>
 				</h5>
               </p>
@@ -34,7 +64,7 @@
                   %></span
                 >
               </div>
-				<a href="/foodstops/<%= foodstop._id %>" class="card-link">Read More</a>
+				<a href="/foodstops/<%= foodstop._id %>" class="card-link f_detail">Read More</a>
             </div>
           </div>
 			</div>
